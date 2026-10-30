@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siam Golden Spoon | Authentic Thai Food Randomizer</title>
+
+    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans & Prompt (Thai/English) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Navigation Bar (Navbar at the Very Top of the Page) -->
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <div class="navbar-container">
+                <a href="#featured" class="brand">
+                    <span class="brand-icon" aria-hidden="true">🍜</span>
+                    <div class="brand-text">
+                        <span class="brand-title">Siam Golden Spoon</span>
+                        <span class="brand-subtitle">ครัวสยาม • Authentic Thai Cuisine</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#featured" class="active">Random Menu</a></li>
+                    <li><a href="#menu-collection">All 8 Dishes</a></li>
+                    <li><a href="#why-thai">Thai Flavors</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <span class="menu-count-pill">8 Signature Menus</span>
+                    <button type="button" id="nav-random-btn" class="nav-random-btn">
+                        🎲 Quick Random
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Page Content -->
+    <main class="main-content">
+
+        <!-- Hero Heading -->
+        <section class="hero-intro">
+            <span class="eyebrow-badge">✨ Taste of Thailand • สุ่มเมนูอาหารไทยยอดฮิต</span>
+            <h1>Discover Your Next Favorite Authentic Thai Dish</h1>
+            <p>
+                Can't decide what to eat today? Click the randomizer button below to explore iconic
+                Thai dishes crafted with aromatic herbs, fiery chilies, and rich coconut cream.
+            </p>
+        </section>
+
+        <!-- 2. Food Information Display & Random Food Selection -->
+        <section id="featured" class="food-showcase-section" aria-live="polite">
+            <article id="food-card" class="food-card">
+
+                <!-- Food Image Display -->
+                <div class="food-image-wrapper">
+                    <div class="image-top-badges">
+                        <span id="food-region" class="region-badge">📍 Central Thailand</span>
+                        <span id="food-spice" class="spice-badge">🌶️ Mildly Spiced</span>
+                    </div>
+
+                    <img
+                        id="food-image"
+                        src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=900&q=80"
+                        alt="Pad Thai Goong Sod (Royal River Prawn Pad Thai)"
+                    >
+
+                    <div class="image-gradient-overlay"></div>
+                    <span id="dish-counter" class="dish-index-indicator">Menu #1 of 8</span>
+                </div>
+
+                <!-- Food Name, Price, Description & Random Selection Button -->
+                <div class="food-details">
+                    <div>
+                        <div class="food-header-group animate-field">
+                            <div class="food-titles">
+                                <span id="food-thai-name" class="food-thai-subtitle">ผัดไทยกุ้งสด</span>
+                                <h2 id="food-name">Pad Thai Goong Sod (Royal River Prawn Pad Thai)</h2>
+                            </div>
+
+                            <!-- Food Price -->
+                            <div class="price-box">
+                                <span class="price-label">Menu Price</span>
+                                <span id="food-price">฿185</span>
+                            </div>
+                        </div>
+
+                        <!-- Food Description & Key Ingredients -->
+                        <div class="food-body animate-field" style="margin-top: 20px;">
+                            <span class="description-heading">Chef's Description</span>
+                            <p id="food-description">
+                                Wok-charred Chanthaburi rice noodles glazed in a rich tamarind-palm sugar reduction,
+                                tossed with succulent grilled river prawns, crispy tofu, roasted peanuts, fresh bean
+                                sprouts, and garlic chives.
+                            </p>
+
+                            <div id="food-ingredients" class="ingredients-tags">
+                                <span class="ingredient-tag">Chanthaburi Noodles</span>
+                                <span class="ingredient-tag">River Prawns</span>
+                                <span class="ingredient-tag">Tamarind Glaze</span>
+                                <span class="ingredient-tag">Roasted Peanuts</span>
+                                <span class="ingredient-tag">Fresh Lime</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Core Feature: Random Food Selection Button -->
+                    <div class="food-actions">
+                        <button type="button" id="random-btn" class="random-btn">
+                            <span class="dice-icon" aria-hidden="true">🎲</span>
+                            <span>Randomly Select Another Thai Menu</span>
+                        </button>
+                        <div class="action-helper-row">
+                            <span id="selection-count">Randomly discovered: 0 times</span>
+                            <span>Instant update • No page reload</span>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+
+        <!-- Full Menu Gallery (All 8 Menu Items) -->
+        <section id="menu-collection" class="menu-gallery-section">
+            <div class="section-header">
+                <div>
+                    <h2>Explore Our Full Thai Menu Collection</h2>
+                    <p>All 8 authentic dishes included in the randomizer — click any dish card to preview it above.</p>
+                </div>
+            </div>
+            <div id="menu-grid" class="menu-grid">
+                <!-- Populated dynamically by script.js -->
+            </div>
+        </section>
+
+        <!-- Thai Culinary Balance Section -->
+        <section id="why-thai" class="heritage-banner">
+            <div class="pillar-item">
+                <div class="pillar-icon">🌶️</div>
+                <h3>Spicy (เผ็ด)</h3>
+                <p>Vibrant heat from fresh bird's eye chilies and hand-pounded curry pastes.</p>
+            </div>
+            <div class="pillar-item">
+                <div class="pillar-icon">🍋</div>
+                <h3>Sour (เปรี้ยว)</h3>
+                <p>Bright citrus notes from fresh lime juice, tamarind pulp, and kaffir lime.</p>
+            </div>
+            <div class="pillar-item">
+                <div class="pillar-icon">🥥</div>
+                <h3>Sweet (หวาน)</h3>
+                <p>Rich, caramel undertones from organic Phetchaburi palm sugar and coconut cream.</p>
+            </div>
+            <div class="pillar-item">
+                <div class="pillar-icon">🌿</div>
+                <h3>Aromatic (หอมสมุนไพร)</h3>
+                <p>Fragrant Thai holy basil, lemongrass, galangal, and toasted spices in every bite.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2026 Siam Golden Spoon • Authentic Thai Food Menu Randomizer (Week 15 Project)</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
